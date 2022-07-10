@@ -1,0 +1,25 @@
+.tempval {   
+    margin: 5px auto;
+    width: 65%;
+    border-radius: 20px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.307);
+    height: 400px;
+    line-height: 400px;
+    background: url(../assets/img_back.jpg) center/cover;
+    text-align: center;
+}
+.tempval p{
+    color : white;
+    border-radius: 40px;
+    display: inline-flex;
+    font-size: 50px;
+    line-height: normal;
+    vertical-align: middle;
+    padding : 40px;
+    -webkit-backdrop-filter: blur(10px); /* assure la compatibilité avec safari */
+    backdrop-filter: blur(10px);
+    background-color: rgba(182, 182, 182, 0.2);
+    }
+sup {
+    font-size: 30px;
+}

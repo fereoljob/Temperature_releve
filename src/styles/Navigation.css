@@ -1,0 +1,23 @@
+.navigation ul {
+    display: flex;
+    margin :15px;
+}
+
+.navigation a {
+    text-decoration: none;
+    padding :10px;
+    font-size: large;
+}
+
+.navigation li {
+
+    color : deepskyblue;
+    list-style: none;
+}
+
+.navigation li:hover {
+    color : darkgray;
+}
+.nav-active {
+    border-bottom: 3px solid deepskyblue;
+}

@@ -1,0 +1,19 @@
+.Banner {
+	color: black;
+	text-align: right;
+	padding: 22px;
+	border-bottom: solid 3px black;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: row;
+	align-items: center;
+}
+
+.title {
+	padding-left: 32px;
+}
+
+.logo {
+	height: 55px;
+	width: 55px;
+}
