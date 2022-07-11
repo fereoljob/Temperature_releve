@@ -4,6 +4,9 @@ import Relevetemp from "./Relevetemp.js"
 import "../styles/Infostation.css"
 import { useEffect, useState } from "react"
 
+/* on récupère ici les 23 dernières mesures d'une station specifique 
+qui seront ensuites triés selon la date et l'heure de mesure la plus recente dans les composants
+details et Relevetemp*/
 const Infostation = ({station,index}) => {
     const [dataW,setDataW] = useState([])
     useEffect(()=>{

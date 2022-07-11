@@ -2,10 +2,10 @@ import "../styles/details.css"
 import moment from "moment"
 import localization from 'moment/locale/fr';
 const Details = ({data}) => {
-    const donneesatrier = data.filter((element)=>element.date_mesure_temp==data[0].date_mesure_temp)
+    const donneesatrier = data.filter((element)=>element.date_mesure_temp===data[0].date_mesure_temp)
     const donneestrier = donneesatrier.reverse(); 
     moment.updateLocale('fr',localization);
-    return  typeof data[0]!=="undefined" && (
+    return  typeof donneestrier[0]!=="undefined" && (
         <div className="details" >
             <ul>
                 <li>Cours d'eau : <span className="val">{donneestrier[0].libelle_station.substring(0,donneestrier[0].libelle_station.indexOf('à')-1)}</span></li>

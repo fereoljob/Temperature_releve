@@ -3,13 +3,14 @@ import axios from "axios";
 import Infostation from "./Infostation.js";
 import { useEffect, useState } from "react";
 
+/*On recupère ici les stations de mesures de chaque cours d'eau
+du département de la gironde (code_departement=33) afin d'obtenir de repartir
+les relevés de températures des stations dans un carousel*/
 const Gallery = () =>{
     const [data,setData] = useState([])
    
     useEffect(()=>{
-    //un timer afin de relancer la requête vers le serveur qui modifiera
-    //le state et prendra 
-    //en compte toute nouvelle mise à jour effectué sur l'api
+    
     axios.get("https://hubeau.eaufrance.fr/api/v1/temperature/station?code_departement=33&size=20&exact_count=true&format=json&pretty").then((res)=>setData(res.data.data))
     },[])
         
