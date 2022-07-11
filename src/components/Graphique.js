@@ -25,15 +25,15 @@ const Graphique = ({ddebut,dfin,eau})=>
                 }
 
             }
-        )},[size])
+    )},[size])
            
     return datedebuttrouve===false? (
         <div className="nothing">   
-           <h2>Pas de relevés de température en partant du {moment(ddebut.toLocaleString()).format("Do MMMM YYYY")}</h2>
+           <h2>En cours de développement .....</h2>
         </div>
     ) : (
         <div className="nothing">
-            Ca commence bien!
+            En cours de développement .....
         </div>
     )
 }
