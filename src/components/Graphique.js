@@ -1,38 +1,39 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import "../styles/Graphique.css"
-const Graphique = ({date_debut,date_fin,Eau})=>
+import moment from "moment"
+import localization from 'moment/locale/fr';
+const Graphique = ({ddebut,dfin,eau})=>
 {
-    const[releves,setReleve] = useState({})
-    let datedebuttrouve = false;
+    const [releves,setReleve] = useState({})
+    const [size,setSize] = useState(1000)
+    const [datedebuttrouve,setDateDebutTrouve] = useState(false);
     useEffect(()=>{
-        let size = 1000
-        while(true){
-            axios.get("https://hubeau.eaufrance.fr/api/v1/temperature/chronique?code_station="+Eau+"&size="+size+"&sort=desc&pretty").then((res)=>setReleve(res.data))
-            const trouveRelInf = releves.data.find((element)=>element.date_mesure_temp <= date_debut)
-            if(trouveRelInf==="undefined")
-            {
-                size+=1000
-                if(releves.next===null)
+        axios.get("https://hubeau.eaufrance.fr/api/v1/temperature/chronique?code_station="+eau+"&size="+size+"&sort=desc&pretty").then((res)=>{
+                setReleve(res.data)
+                const trouveRelInf = res.data.data.find((element)=>element.date_mesure_temp <= ddebut)
+                if(trouveRelInf==="undefined")
                 {
-                    break;
+                    if(releves.next!==null)
+                    {
+                        setSize(size+1000)
+                    }
                 }
-            }
-            else
-            {
-                datedebuttrouve = true;
-                break;
-            }
-        }
-    },[])
+                else
+                {
+                    setDateDebutTrouve(true);
+                }
 
+            }
+        )},[size])
+           
     return datedebuttrouve===false? (
-        <div className="noting">   
-           <h3>Pas de relevés de température a {date_debut}</h3>
+        <div className="nothing">   
+           <h2>Pas de relevés de température en partant du {moment(ddebut.toLocaleString()).format("Do MMMM YYYY")}</h2>
         </div>
     ) : (
-        <div className="Results">
-
+        <div className="nothing">
+            Ca commence bien!
         </div>
     )
 }
